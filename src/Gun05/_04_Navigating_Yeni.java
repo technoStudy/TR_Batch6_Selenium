@@ -2,6 +2,7 @@ package Gun05;
 
 import Utlity.BaseDriver;
 import Utlity.MyFunc;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -23,6 +24,14 @@ public class _04_Navigating_Yeni extends BaseDriver {
         MyFunc.Bekle(2);
 
         driver.navigate().forward();
+
+//        if (driver.getCurrentUrl().equals("https://testpages.eviltester.com/styled/alerts/alert-test.html"))
+//            System.out.println("Test passed");
+//        else
+//            System.out.println("Test fail");
+
+        Assert.assertTrue("Beklenen sayfaya ulaşılamadı",driver.getCurrentUrl().equals("1https://testpages.eviltester.com/styled/alerts/alert-test.html"));
+       //Ben true bekliyorum, değilse göster, yoksa test passed
 
         BekleKapat();
     }
