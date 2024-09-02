@@ -17,11 +17,18 @@ public class _06_FindingByLinkText {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.hepsiburada.com/");
 
-        WebElement siparislerimLinki=driver.findElement(By.linkText("Siparişlerim"));
         // link görünen texti Siparişlerim olan a tag li ELEMANI bul
+        WebElement siparislerimLinki=driver.findElement(By.linkText("Siparişlerim"));
         System.out.println("siparislerimLinki.getText() = " + siparislerimLinki.getText());
 
+        //PartialLinktext : Linkin görünen yazısının bir kısmını selector olarak kullanabilirsiniz.
+        WebElement link2=driver.findElement(By.partialLinkText("Süper Fiyat"));
+        System.out.println("link2.getText() = " + link2.getText());
+
+
         MyFunc.Bekle(3);
-        driver.quit();
+        driver.quit(); // bu driver üzerinden açılmış bütün tarayıcıları kapotır.
+        // driver.close() // bu driver üzerinden açılmış, o anda aktif olan tarayıcıyı kapatır.
+
     }
 }
