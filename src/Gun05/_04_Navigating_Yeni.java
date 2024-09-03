@@ -30,7 +30,7 @@ public class _04_Navigating_Yeni extends BaseDriver {
 //        else
 //            System.out.println("Test fail");
 
-        Assert.assertTrue("Beklenen sayfaya ulaşılamadı",driver.getCurrentUrl().equals("1https://testpages.eviltester.com/styled/alerts/alert-test.html"));
+        Assert.assertTrue("Beklenen sayfaya ulaşılamadı",driver.getCurrentUrl().equals("https://testpages.eviltester.com/styled/alerts/alert-test.html"));
        //Ben true bekliyorum, değilse göster, yoksa test passed
 
         BekleKapat();
