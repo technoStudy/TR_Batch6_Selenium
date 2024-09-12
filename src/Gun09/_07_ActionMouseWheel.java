@@ -25,4 +25,18 @@ public class _07_ActionMouseWheel extends BaseDriver {
         BekleKapat();
     }
 
+    @Test
+    public void Test2() // belli bir miktar kadar kaydır
+    {
+        driver.get("https://www.selenium.dev/selenium/web/scrolling_tests/frame_with_nested_scrolling_frame_out_of_view.html");
+        MyFunc.Bekle(2);
+
+        new Actions(driver)
+                .scrollByAmount(0, 600)// verilen pixel miktarı kadar scroll yap
+                .build()
+                .perform();
+
+        BekleKapat();
+    }
+
 }
