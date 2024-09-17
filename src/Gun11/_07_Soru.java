@@ -2,6 +2,7 @@ package Gun11;
 
 
 import Utlity.BaseDriver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -20,26 +21,28 @@ public class _07_Soru extends BaseDriver {
     Beklenen url https://www.selenium.dev/  olduğunu doğrulayınız
  */
     @Test
-    public void Test1()
-    {
+    public void Test1() {
         driver.get("https://google.com/");
 
         //bulursan tıklat, bulamzsan geç
-        List<WebElement> acceptAll=driver.findElements(By.id("L2AGLb"));
-        if (acceptAll.size()>0)
-          acceptAll.get(0).click();
+        List<WebElement> acceptAll = driver.findElements(By.id("L2AGLb"));
+        if (acceptAll.size() > 0)
+            acceptAll.get(0).click();
 
-        WebElement srcBox=driver.findElement(By.name("q"));
-        srcBox.sendKeys("Selenium"+ Keys.ENTER); // \n \r
+        WebElement srcBox = driver.findElement(By.name("q"));
+        srcBox.sendKeys("Selenium" + Keys.ENTER); // \n \r
 
 //        wait.until(ExpectedConditions.elementToBeClickable(By.name("btnK")));
 //        WebElement srcBtn=driver.findElement(By.name("btnK"));
-//        srcBtn.click();
+//        srcBtn.click(); Keys.ENTER işlemi yapınca SEARCH butonuna tıklatmaya ihtiyaç kalmadı
 
+        WebElement seleniumLink = driver.findElement(By.xpath("//cite[text()='https://www.selenium.dev']"));
+        seleniumLink.click();
 
+        wait.until(ExpectedConditions.urlToBe("https://www.selenium.dev/"));
+        Assert.assertTrue("Sayfaya ulaşılamadı", driver.getCurrentUrl().equals("https://www.selenium.dev/"));
 
-
-       // BekleKapat();
+        BekleKapat();
     }
 
 
