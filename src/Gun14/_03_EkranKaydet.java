@@ -37,8 +37,10 @@ public class _03_EkranKaydet extends BaseDriver {
 
             TakesScreenshot ts = (TakesScreenshot) driver;
             File hafizadakiFile = ts.getScreenshotAs(OutputType.FILE);  // ekran kaydını Dosya formatı olarak hafızaya alınmış oldu
-            FileUtils.copyFile(hafizadakiFile, new File("ekranGoruntuleri\\screenShot.jpg"));
+            FileUtils.copyFile(hafizadakiFile, new File("ekranGoruntuleri\\screenShot.jpg")); //2024_04_05_13_56
             //Şu anda hazıfzadaki görüntüyü dosya olarak kaydetti.
+
+            // TODO :  Öyle bir şey yapınki her ekran kaydı , AYRI AYRI kaydedilsin.
         }
 
 
