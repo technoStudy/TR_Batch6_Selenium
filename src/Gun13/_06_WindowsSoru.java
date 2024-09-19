@@ -27,14 +27,19 @@ public class _06_WindowsSoru extends BaseDriver {
 
         List<WebElement> linkler=driver.findElements(By.cssSelector("a[target='_blank']"));
         for(WebElement e: linkler) {
-             js.executeScript("arguments[0].click();", e);
+
+            if (e.getAttribute("href").equalsIgnoreCase("https://kiwiirc.com/nextclient/irc.libera.chat/#selenium"))
+                continue;
+
+            js.executeScript("arguments[0].click();", e);
+            System.out.println("e.getAttribute = " + e.getAttribute("href"));
         }
         MyFunc.Bekle(2);
 
         Set<String> tabIdler=driver.getWindowHandles();
         for(String id: tabIdler){
-                driver.switchTo().window(id);
-            //System.out.println(driver.getTitle()+ " - "+driver.getCurrentUrl());
+            driver.switchTo().window(id);
+            System.out.println(driver.getTitle()+" - "+driver.getCurrentUrl());
         }
 
         for(String id: tabIdler){
